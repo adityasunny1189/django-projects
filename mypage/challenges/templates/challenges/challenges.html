@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ month_name | title }}
+{% endblock %}
+
+{% block content %}
+    {% include 'challenges/snippets/header.html' %}
+	<h2>{{ month_name | title }} challenge</h2>
+    {% if month_challenge is not None %}
+	    <h4>{{ month_challenge }}</h4>
+    {% else %}
+        <h4>This month you don't have any challenge</h4>
+    {% endif %}
+{% endblock %}
