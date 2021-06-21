@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+	{{ myname | title }}
+{% endblock %}
+
+{% block css_files %}
+	<link rel="stylesheet" type="text/css" href={% static 'my_blog/index.css' %}/>
+	<link rel="stylesheet" type="text/css" href={% static 'my_blog/post.css' %}>
+{% endblock %}
+
+{% block content %}
+	
+	<section id="welcome">
+		<header>
+			<img src={% static 'my_blog/images/aditya.png' %}>
+			<h2>Aditya's Blog</h2>
+		</header>
+		<p>Hi i am aditya and i love to code.</p>
+	</section>
+
+	<section id="latest-posts">
+		<h2>My Latest Thoughts</h2>
+
+		<ul>
+			{% for post in posts %}
+				{% include 'my_blog/include/post.html' %}
+			{% endfor %}
+		</ul>
+	</section>
+
+	<section id="about">
+		<h2>What i Do</h2>
+		<p>
+			I love to code and build something new
+		</p>
+		<p>
+			Let's catch up
+		</p>
+	</section>
+
+{% endblock %}
