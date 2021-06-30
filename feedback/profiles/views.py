@@ -1,6 +1,7 @@
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import ListView
 
 from .models import UserProfile
 from .forms import ProfileForm
@@ -30,3 +31,8 @@ class CreateProfileView(View):
             return render(request, "profiles/create_profile.html", {
                 'form': submitted_form
             })
+
+class UserProfileView(ListView):
+    template_name = 'profiles/user_profile.html'
+    model = UserProfile
+    context_object_name = 'profiles'
